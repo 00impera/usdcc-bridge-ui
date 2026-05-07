@@ -150,7 +150,7 @@ bot.on('callback_query', (query) => {
     bot.sendMessage(chat, `◎ *NEAR → ⬡ MONAD*\n\n\`\`\`\nnear contract call-function \\\n  as-transaction \\\n  usdcc-token.gemsrock-nft.near \\\n  burn_and_bridge \\\n  json-args '{"amount":"1000000","monad_recipient":"0xYOUR_ADDR"}' \\\n  prepaid-gas 100TGAS \\\n  attached-deposit 1yoctoNEAR \\\n  sign-as YOUR.near \\\n  network-config mainnet now\n\`\`\`\n\nRelayer detectează în ~15 secunde ✅`, { parse_mode:'Markdown' });
   }
   if (query.data === 'bridge_monad_near') {
-    bot.sendMessage(chat, `⬡ *MONAD → ◎ NEAR*\n\nContract: \`${USDCC_MONAD}\`\n\nApelează \`burnAndBridge(amount, "YOUR.near")\` pe contractul Monad.\n\nReverse relayer mintează pe NEAR în ~15s ✅`, { parse_mode:'Markdown' });
+    bot.sendMessage(chat, `⬡ *MONAD → ◎ NEAR*\n\nContract: \`${USDCC_MONAD}\`\n\nApelează \`burnAndBridge(amount, "YOUR.near")\`\n\nReverse relayer mintează pe NEAR în ~15s ✅`, { parse_mode:'Markdown' });
   }
   if (query.data === 'swap_uniswap') {
     bot.sendMessage(chat, `⬡ *Uniswap V4 — Monad*\n\nPair: WMON/USDCC | Fee: 1%\n\n[Open Uniswap V4 ↗](https://app.uniswap.org/#/swap?chain=monad&inputCurrency=0x3bd359C1119dA7Da1D913D1C4D2B7c461115433A&outputCurrency=${USDCC_MONAD})`, { parse_mode:'Markdown' });
