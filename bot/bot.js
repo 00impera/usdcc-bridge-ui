@@ -97,8 +97,8 @@ bot.onText(/\/buy/, (msg) => {
     caption: `💳 *Buy USDCC with Card*\n\nPowered by *Thirdweb Pay*\n\n✅ Visa & Mastercard\n✅ Apple Pay & Google Pay\n✅ Instant delivery to Monad wallet`,
     parse_mode: 'Markdown',
     reply_markup: { inline_keyboard:[
-      [{ text:'💳 Buy USDCC with Card', url:payUrl }],
-      [{ text:'💳 Buy MON with Card', url:`https://pay.thirdweb.com/buy?clientId=${CLIENT_ID}&chainId=143&theme=dark` }],
+      [{ text:'💳 Buy USDCC with Card', url:`https://app.uniswap.org/#/swap?chain=monad&outputCurrency=${USDCC_MONAD}` }],
+      [{ text:'💳 Buy MON (Thirdweb Pay)', url:`https://thirdweb.com/pay` }],
       [{ text:'🌐 Open Full UI', url:BRIDGE_URL }]
     ]}
   });
