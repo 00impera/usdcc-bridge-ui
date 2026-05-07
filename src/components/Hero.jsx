@@ -1,6 +1,13 @@
 export default function Hero({ setPage }) {
   return (
     <div className="hero" style={{ paddingTop: '40px' }}>
+      <div style={{ display:'flex', justifyContent:'center', alignItems:'center', marginBottom:'2rem' }}>
+        <img
+          src="https://files.catbox.moe/ujzf30.gif"
+          alt="USDCC Bridge"
+          style={{ borderRadius:'16px', boxShadow:'0 0 20px #39FF14, 0 0 40px #00FF00, 0 0 60px rgba(57,255,20,0.3)', maxWidth:'200px', width:'100%' }}
+        />
+      </div>
       <div className="hero-badge">
         <span className="live-dot"></span>LIVE ON MONAD + NEAR MAINNET
       </div>
