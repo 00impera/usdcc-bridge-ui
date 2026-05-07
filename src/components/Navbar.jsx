@@ -1,4 +1,9 @@
-import { useState } from 'react'
+import { createThirdwebClient } from 'thirdweb'
+import { ConnectButton } from 'thirdweb/react'
+import { defineChain } from 'thirdweb/chains'
+
+const client = createThirdwebClient({ clientId: '821819db832d1a313ae3b1a62fbeafb7' })
+const monad = defineChain(143)
 
 const LINKS = [
   { id: 'home', label: 'Home' },
@@ -9,14 +14,6 @@ const LINKS = [
 ]
 
 export default function Navbar({ page, setPage }) {
-  const [address, setAddress] = useState(null)
-
-  async function connect() {
-    if (!window.ethereum) { alert('Install MetaMask!'); return; }
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
-    setAddress(accounts[0])
-  }
-
   return (
     <nav className="navbar">
       <div className="navbar-logo">USDCC BRIDGE</div>
@@ -29,9 +26,7 @@ export default function Navbar({ page, setPage }) {
           )
         })}
       </ul>
-      <button className="btn-iridescent" style={{fontSize:'0.7rem',padding:'8px 16px'}} onClick={connect}>
-        {address ? address.slice(0,6)+'...'+address.slice(-4) : '⚡ Connect Wallet'}
-      </button>
+      <ConnectButton client={client} chain={monad} theme="dark" />
     </nav>
   )
 }
