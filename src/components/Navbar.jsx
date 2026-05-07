@@ -1,10 +1,3 @@
-import { createThirdwebClient } from 'thirdweb'
-import { ConnectButton } from 'thirdweb/react'
-import { defineChain } from 'thirdweb/chains'
-
-const client = createThirdwebClient({ clientId: '821819db832d1a313ae3b1a62fbeafb7' })
-const monad = defineChain(143)
-
 const LINKS = [
   { id: 'home', label: 'Home' },
   { id: 'dashboard', label: 'Dashboard' },
@@ -26,11 +19,7 @@ export default function Navbar({ page, setPage }) {
           )
         })}
       </ul>
-      <ConnectButton
-        client={client}
-        chain={monad}
-        theme="dark"
-      />
+      <button className="btn-iridescent" style={{fontSize:'0.7rem',padding:'8px 16px'}}>Connect Wallet</button>
     </nav>
   )
 }
