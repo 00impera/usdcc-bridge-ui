@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const LINKS = [
   { id: 'home', label: 'Home' },
   { id: 'dashboard', label: 'Dashboard' },
@@ -7,6 +9,14 @@ const LINKS = [
 ]
 
 export default function Navbar({ page, setPage }) {
+  const [address, setAddress] = useState(null)
+
+  async function connect() {
+    if (!window.ethereum) { alert('Install MetaMask!'); return; }
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+    setAddress(accounts[0])
+  }
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">USDCC BRIDGE</div>
@@ -19,7 +29,9 @@ export default function Navbar({ page, setPage }) {
           )
         })}
       </ul>
-      <button className="btn-iridescent" style={{fontSize:'0.7rem',padding:'8px 16px'}}>Connect Wallet</button>
+      <button className="btn-iridescent" style={{fontSize:'0.7rem',padding:'8px 16px'}} onClick={connect}>
+        {address ? address.slice(0,6)+'...'+address.slice(-4) : '⚡ Connect Wallet'}
+      </button>
     </nav>
   )
 }
